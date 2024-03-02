@@ -2,12 +2,9 @@
 .landing{
 
     height: 90vh ;
-   
     background-color: #132257;
-    color: white !important;
-    
-    
-    
+    color: white ;
+    border: 1px solid red;
 }
 
 .landingLeftSide{
@@ -16,6 +13,7 @@
     justify-content: space-around;
     align-items: center;
     padding-left: 100px;
+   
 
    
 
@@ -30,7 +28,7 @@
  font-size: 3.6rem;
  font-weight: 100;
  color:darkseagreen
- /* color: rgb(40, 40, 193) */
+
 }
 
 
@@ -69,7 +67,6 @@
 /* landing.module.css */
 
 .ourFeatures {
- 
    padding: 40px;
   }
 
@@ -93,9 +90,7 @@
     box-shadow: 5px 3px 5px 3px;
   }
   
-  .featureCard:hover {
-
-  }
+  
 
   .featureCard:last-child {
     margin-right: 0;
@@ -171,6 +166,22 @@ html {
 }
 
 @media screen and (max-width: 768px) {
+
+  .footerContent {
+    flex-direction: column;
+ /* height: 20vh; */
+  }
+
+  .footerItem {
+    flex-basis: 100%;
+  }
+}
+
+
+@media screen and (max-width: 488px) {
+  footer{
+    height: 300px !important;
+  }
   .footerContent {
     flex-direction: column;
   }
@@ -182,17 +193,18 @@ html {
 
 /* Adjustments for tablet screens */
 @media only screen and (max-width: 768px) {
+  .landing{
+    height: 80vh !important ;
+    background-color: #132257;
+    color: white !important;
+  }
 
   .landingLeftSide {
     padding-left: 20px; 
     justify-content: center; 
     text-align: center; 
   
-    
-
   }
-
- 
 
   .landingLeftSide h1 {
     font-size: 28px; 
@@ -217,28 +229,37 @@ html {
 
 /* Adjustments for mobile screens */
 @media only screen and (max-width: 480px) {
+
+  .landing{
+    height: 75vh !important ;
+    background-color: #132257;
+    color: white !important;
+  }
+
+
   .landingLeftSide {
+ 
     padding-left: 10px;
   }
 
   .landingLeftSide h1 {
-    font-size: 20px;
+    font-size: 28px;
   }
 
   .landingLeftSide span {
-    font-size: 2rem; 
+    font-size: 2.8rem; 
   }
 
   .info {
-    font-size: 14px; 
+    font-size: 17px; 
   }
 
   .btn {
-    margin-top: 15px; 
+    margin-top: 30px; 
   }
 }
 
-
+/* features media queries */
 
 @media only screen and (max-width: 768px) {
   .ourFeatures h2 {
@@ -247,33 +268,41 @@ html {
   }
 
   .featureCards {
-    
-    flex-direction: column; 
+    display: flex;   
+    flex-direction: column;
+    justify-content: center; 
     align-items: center; 
    
   }
 
   .featureCard {
-    width: 80%; 
+    width: 90%; 
     margin-bottom: 20px; 
   }
 }
 
 /* Adjustments for mobile screens */
-/* Adjustments for mobile screens */
 @media only screen and (max-width: 480px) {
   .ourFeatures h2 {
-    font-size: 24px;
+    font-size: 28px !important;
     margin: 20px 5px; 
   }
 
   .featureCards {
-    flex-direction: column !important; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
     align-items: center; 
+
   }
 
   .featureCard {
     width: 90%; 
     margin-bottom: 20px;
+  }
+  .featureImgCards{
+    display: flex;
+    gap:10px;
+    /* align-items: center; */
   }
 }
