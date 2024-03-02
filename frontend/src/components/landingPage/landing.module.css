@@ -228,13 +228,14 @@ html {
 }
 
 /* Adjustments for mobile screens */
-@media  (max-width: 480px) {
+@media  (max-width: 380px) {
 
   .landing{
     height: 75vh !important ;
     background-color: #132257;
     color: white !important;
   }
+  
 
 
   .landingLeftSide {
@@ -282,7 +283,7 @@ html {
 }
 
 /* Adjustments for mobile screens */
-@media  (max-width: 480px) {
+@media  (max-width: 380px) {
   .ourFeatures h2 {
     font-size: 28px !important;
     margin: 20px 5px; 
