@@ -4,7 +4,7 @@
     height: 90vh ;
     background-color: #132257;
     color: white ;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .landingLeftSide{
@@ -165,7 +165,7 @@ html {
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
 
   .footerContent {
     flex-direction: column;
@@ -178,7 +178,7 @@ html {
 }
 
 
-@media screen and (max-width: 488px) {
+@media  (max-width: 488px) {
   footer{
     height: 300px !important;
   }
@@ -192,7 +192,7 @@ html {
 }
 
 /* Adjustments for tablet screens */
-@media only screen and (max-width: 768px) {
+@media  (max-width: 768px) {
   .landing{
     height: 80vh !important ;
     background-color: #132257;
@@ -228,7 +228,7 @@ html {
 }
 
 /* Adjustments for mobile screens */
-@media only screen and (max-width: 480px) {
+@media  (max-width: 480px) {
 
   .landing{
     height: 75vh !important ;
@@ -261,7 +261,7 @@ html {
 
 /* features media queries */
 
-@media only screen and (max-width: 768px) {
+@media  (max-width: 768px) {
   .ourFeatures h2 {
     font-size: 30px; 
     margin: 20px 10px; 
@@ -282,7 +282,7 @@ html {
 }
 
 /* Adjustments for mobile screens */
-@media only screen and (max-width: 480px) {
+@media  (max-width: 480px) {
   .ourFeatures h2 {
     font-size: 28px !important;
     margin: 20px 5px; 
