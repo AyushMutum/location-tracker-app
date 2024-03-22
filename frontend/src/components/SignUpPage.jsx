@@ -55,6 +55,7 @@ const Button = styled.button`
 const Account = styled.div`
   margin-left: 8px;
   margin-bottom: -40px;
+  margin-top: 10px;
 `;
 
 const Navigation = styled.div`
@@ -62,6 +63,7 @@ const Navigation = styled.div`
   height: 100%;
   padding: 15px 0px;
   text-align: center;
+  margin-left: 50px;
 `;
 
 const NavLinks = styled.div`
@@ -104,7 +106,7 @@ const Register = () => {
           onChange={(e) => setFirstName(e.target.value)}
         />
 
-        <Label htmlFor="lname">Email Address</Label>
+        <Label htmlFor="lname">Last Name</Label>
         <Input
           type="text"
           id="lname"
