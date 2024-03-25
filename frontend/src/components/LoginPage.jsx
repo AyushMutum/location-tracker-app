@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+
+import {AuthContext} from './../context/AuthContext'
+import {BASE_URL} from './../utils/config'
+
 
 const Container = styled.div`
   display: flex;
@@ -85,10 +89,37 @@ const Reg = styled(NavLink)`
 const Register = () => {
   const [email, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
+
+const { dispatch } = useContext(AuthContext);
+const navigate = useNavigate();
  
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
+
+    dispatch({type:'LOGIN_START'});
+
+  try{
+   
+    const res = await fetch(`${BASE_URL}/auth/login`, {
+      method: 'post',
+      headers:{
+        'content-type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(email, password),
+  })
+    const result = await res.json();
+  if(!res.ok) alert(result.message);
+  console.log(result.data)
+
+    dispatch({type: 'LOGIN_SUCCESS', payload: result.data});
+    navigate('/')
+
+
+}catch(err){
+  dispatch({type: 'LOGIN_FAILURE', payload: err.message});
+  }
   };
 
   return (

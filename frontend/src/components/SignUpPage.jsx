@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+
+import { AuthContext } from './../context/AuthContext.js';
+import {BASE_URL} from './../utils/config.js'
+
+
 
 const Container = styled.div`
   display: flex;
@@ -83,14 +88,41 @@ const Reg = styled(NavLink)`
 `;
 
 const Register = () => {
+
+  
   const [email, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
   const [fname, setFirstName] = useState("");
   const [lname, setLastName] = useState("");
 
-  const handleSubmit = (e) => {
+const { dispatch } = useContext(AuthContext);
+const navigate = useNavigate();
+
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
-  };
+
+    try{
+      const res = await fetch(`${BASE_URL}/auth/register`, {
+        method: 'post',
+        headers:{
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(email, password, fname, lname),
+      });
+      const result = await res.json()
+  
+      if(!res.ok) alert(result.message);
+  
+      dispatch({type: 'REGISTER_SUCCESS'});
+      navigate('/login')
+    }catch(err){
+     alert(err.message);
+    }
+  }
+
+
+  
 
   return (
     <Container>
@@ -133,7 +165,7 @@ const Register = () => {
         <Account htmlFor="New">Already have have any account?</Account>
         <Navigation>
           <NavLinks>
-            <Reg to="/Register">Click Here</Reg>
+            <Reg to="/Login">Click Here</Reg>
           </NavLinks>
         </Navigation>
       </Form>
